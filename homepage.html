@@ -1,55 +1,58 @@
-<!doctype html>
-<html lang="en">
- <head>
-   {% block head %}
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-       <style>
-       a:link {
-       color: white;
-       background-color: transparent;
-       text-decoration: none;
-       }
- 
-       a:visited {
-       color: white;
-       background-color: transparent;
-       text-decoration: none;
-       }
-       </style>
-     {% block styles %}
-       {{ bootstrap.load_css() }}
-     {% endblock %}
- 
-     <title>Your page title</title>
-   {% endblock %}
- </head>
-<body>
- {% block content %}
-   <div class="container">
-       <h1>Image Translator</h1>
-       <form action="/" method="POST" enctype="multipart/form-data">
- 
-           <div class="form-group">
-               <div class="custom-file">
-                   <input type="file" class="custom-file-input" name = "image" id="image">
-                   <label class="custom-file-label" for="image">Select Image....</label>
+<!-- Course: CST 205
+    File: html file for the homepage of flask application where user can upload images and choose translation language
+    Authors: Keshav Gupta, Aryana Beulna, Allyson Rivera, Betsy Ruiz
+    Date: December 17, 2020 -->
+
+    <!doctype html>
+    <html lang="en">
+     <head>
+       {% block head %}
+         <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+           <style>
+           a:link {
+           color: white;
+           background-color: transparent;
+           text-decoration: none;
+           }
+     
+           a:visited {
+           color: white;
+           background-color: transparent;
+           text-decoration: none;
+           }
+           </style>
+         {% block styles %}
+           {{ bootstrap.load_css() }}
+         {% endblock %}
+     
+         <title>Your page title</title>
+       {% endblock %}
+     </head>
+    <body>
+     {% block content %}
+       <div class="container">
+           <h1>Image Translator</h1>
+           <form action="/" method="POST" enctype="multipart/form-data">
+     
+               <div class="form-group">
+                   <div class="custom-file">
+                       <input type="file" class="custom-file-input" name = "image" id="image">
+                       <label class="custom-file-label" for="image">Select Image....</label>
+                   </div>
                </div>
-           </div>
-           <button type="submit" class="btn btn-primary">Upload</button>
-           <br></br>
- 
-           <p>Choose Language To Translate To:</p>
-           <input list="Language">
-           <datalist id="Language">
-             <option value="Spanish">
-           </datalist>
-           <br></br>
- 
-           <button class="btn btn-primary"><a href="{{ url_for('translationPage')}}">Get Translation</a></button>
-       </form>
-   </div>
- {% endblock %}
-</body>
- 
-</html>
+               <button type="submit" class="btn btn-primary">Upload</button>
+               <br></br>
+               <!-- This button translates the image into Spanish  -->
+               <button class="btn btn-primary"><a href="{{ url_for('translationPage', lang='es')}}">Tanslate to Spanish</a></button>
+               <!-- This button translates the image into German.  -->
+               <button class="btn btn-primary"><a href="{{ url_for('translationPage', lang='de')}}">Tanslate to German</a></button>
+               <!-- This button translates the image into Hindi -->
+               <button class="btn btn-primary"><a href="{{ url_for('translationPage', lang='hi')}}">Tanslate to Hindi</a></button>
+           </form>
+       </div>
+     {% endblock %}
+    </body>
+     
+    </html>
+    
